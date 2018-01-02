@@ -18,6 +18,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public bool ValidateScopes { get; set; }
 
-        internal ServiceProviderMode Mode { get; set; } = ServiceProviderMode.Dynamic;
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
+        public ServiceProviderMode Mode { get; set; } = ServiceProviderMode.Dynamic;
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }

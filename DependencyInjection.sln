@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26814.0
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 15.0.26730.03
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D26F6F80-63EE-4081-A814-EF3DBABE24D9}"
 	ProjectSection(SolutionItems) = preProject
@@ -60,6 +60,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Extensions.Activa
 		shared\Microsoft.Extensions.ActivatorUtilities.Sources\ObjectFactory.cs = shared\Microsoft.Extensions.ActivatorUtilities.Sources\ObjectFactory.cs
 		shared\Microsoft.Extensions.ActivatorUtilities.Sources\sharedsources.props = shared\Microsoft.Extensions.ActivatorUtilities.Sources\sharedsources.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReproduceStackoverflow", "test\ReproduceStackoverflow\ReproduceStackoverflow.csproj", "{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -127,6 +129,18 @@ Global
 		{2AB56E17-8ADC-4763-B298-79BFECC351A8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2AB56E17-8ADC-4763-B298-79BFECC351A8}.Release|x86.ActiveCfg = Release|Any CPU
 		{2AB56E17-8ADC-4763-B298-79BFECC351A8}.Release|x86.Build.0 = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Debug|x86.Build.0 = Debug|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|x86.ActiveCfg = Release|Any CPU
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,6 +154,7 @@ Global
 		{483CFA4B-18DB-404D-BCA0-E39E6734733F} = {39447DAF-CDD6-456F-B473-1E9A9D21ADF5}
 		{B3C89BF1-5232-40C6-99AD-B7A67611207A} = {4AF469F9-F632-4F4A-AA1D-63094E932023}
 		{D9306F3C-ADE0-4874-98C2-3E82576F88A6} = {4AF469F9-F632-4F4A-AA1D-63094E932023}
+		{4A158DC2-4E62-4D4C-8B5D-6A70F44F6219} = {88B347C1-CCEC-4827-9564-FFF07C9BF7C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C6654A46-2519-44F2-9C86-0D4BF9F6E0F3}
