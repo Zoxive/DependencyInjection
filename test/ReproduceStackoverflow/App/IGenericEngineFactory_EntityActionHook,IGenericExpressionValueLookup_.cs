@@ -1,4 +1,6 @@
-﻿namespace App
+﻿using System;
+
+namespace App
 {
 
 public interface IGenericEngineFactory<THook,TValueLookup> {}

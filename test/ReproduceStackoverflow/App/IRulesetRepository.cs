@@ -7,11 +7,17 @@ public class CachedRulesetRepository : IRulesetRepository
 {
 	public CachedRulesetRepository
 	(
-		IRulesetRepository rulesetRepository,
-		IKeystoneApplicationRowCacherFactory cacheFactory
+        IRulesetDao rulesetDao
 	)
 	{
 	}
 }
 
+    public interface IRulesetDao
+    {
+    }
+
+    public class RulesetDao : IRulesetDao
+    {
+    }
 }

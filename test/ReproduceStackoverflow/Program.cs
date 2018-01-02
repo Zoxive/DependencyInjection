@@ -16,6 +16,7 @@ namespace ReproduceStackoverflow
                 .Register()
                 .AddMultiTenancy()
                 .AddScoped<IHttpContextAccessor, NullHttpContextAccessor>()
+                .AddScoped(typeof(Lazy<>), typeof(LazyImpl<>))
                 .BuildServiceProvider(new ServiceProviderOptions
                 {
                     ValidateScopes = true,
@@ -49,6 +50,18 @@ namespace ReproduceStackoverflow
             }
 
             current.Dispose();
+        }
+    }
+
+     public class LazyImpl<T> : Lazy<T> where T: class
+    {
+        public LazyImpl(IServiceProvider ioc) : base(Resolve(ioc))
+        {
+        }
+
+        private static T Resolve(IServiceProvider ioc)
+        {
+            return ioc.GetService<T>();
         }
     }
 

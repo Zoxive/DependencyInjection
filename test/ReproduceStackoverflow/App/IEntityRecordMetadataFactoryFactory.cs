@@ -9,7 +9,7 @@ public class EntityRecordMetadataFactoryFactory : IEntityRecordMetadataFactoryFa
 	(
 		IEntityRecordMetadataFactory<IEntityDefinition> defaultFactory,
 		IEntityRecordMetadataFactory<IManyToManyEntityDefinition> manyEntityRecordMetadataFactory,
-		IEntityRecordMetadataFactory<UnionEntityDefinition> unionEntityRecordMetadataFactory
+		IEntityRecordMetadataFactory<IUnionEntityDefinition> unionEntityRecordMetadataFactory
 	)
 	{
 	}

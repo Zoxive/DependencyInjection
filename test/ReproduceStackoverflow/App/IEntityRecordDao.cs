@@ -3,15 +3,35 @@
 
 public interface IEntityRecordDao {}
 
-public class CachedEntityRecordDao : IEntityRecordDao
+public class EntityRecordDao : IEntityRecordDao
 {
-	public CachedEntityRecordDao
+	public EntityRecordDao
 	(
-		IEntityRecordDao dao,
-		IEntityRecordCache entityRecordCache
+        IKeystoneApplicationDatabase database,
+        IEntityDefinitionRepository entityDefinitionRepository,
+        IEntityDatabaseDefinitionFactory definitionFactory,
+        IODataParser parser,
+        IEntityRecordDtoFactory entityRecordDtoFactory,
+        IEntityRecordQueryBuilderFactory entityRecordQueryBuilderFactoryFactory, 
+        EntityDatabaseDefinitionFactory unsecureDefinitionFactory
 	)
 	{
 	}
 }
 
+    public class EntityDatabaseDefinitionFactory : IEntityDatabaseDefinitionFactory
+    {
+        public EntityDatabaseDefinitionFactory(IKeystoneApplicationDatabase keystoneApplicationDatabase)
+        {
+            
+        }
+    }
+
+    public interface IEntityRecordDtoFactory
+    {
+    }
+
+    public class EntityRecordDtoFactory : IEntityRecordDtoFactory
+    {
+    }
 }

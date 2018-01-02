@@ -74,7 +74,6 @@ namespace App
 		services.AddScoped<ISystemHookpointDao,SystemHookpointDao>();
 		services.AddScoped<IEntityRecordServiceImplFactory,EntityRecordServiceImplFactory>();
 		services.AddScoped<EntityRecordService,EntityRecordService>();
-		services.AddScoped<IServiceProvider,ServiceProviderEngineScope>();
 		services.AddScoped<IContentFieldModifiedEventListener,ContentFieldModifiedEventListener>();
 		services.AddScoped<IIdmContentService,IdmContentService>();
 		services.AddScoped<IUserRepository,UserRepository>();
@@ -121,13 +120,15 @@ namespace App
 		services.AddScoped<IEntityRecordMetadataFactory<IEntityDefinition>,EntityRecordMetadataFactory>();
 		services.AddScoped<IEntityRecordMetadataFactory<IManyToManyEntityDefinition>, ManyToManyMetadataFactory>();
 		services.AddScoped<IEntityRecordMetadataFactory<IUnionEntityDefinition>, UnionMetadataFactory>();
+		services.AddScoped<IEntityRecordMetadataEventsFactory,EntityRecordMetadataEventsFactory>();
 
 		services.AddScoped<ITraceExpressionEventFactory,TraceExpressionEventFactory>();
 		services.AddScoped<IEntityRecordActionExecutionServiceFactory,EntityRecordActionExecutionServiceFactory>();
 		services.AddScoped<IHookpointErrorDao,HookpointErrorDao>();
 		services.AddScoped<IUserFactory,UserFactory>();
 		services.AddScoped<IAggregateRootModifiedRepository,AggregateRootModifiedRepository>();
-		services.AddScoped<IEntityRecordMetadataEventsFactory,EntityRecordMetadataEventsFactory>();
+
+
 		services.AddScoped<IExceptionDetailDao,ExceptionDetailDao>();
 		services.AddScoped<IClientDataFactory,ClientDataFactory>();
 		services.AddScoped<IEntityRecordContentService,EntityRecordContentService>();
@@ -171,7 +172,7 @@ namespace App
 		services.AddScoped<ICurrentEntityActions,CurrentEntityActions>();
 		services.AddScoped<IValidationXmlSerializer,ValidationXmlSerializer>();
 		services.AddScoped<IManyToManyEntityRecordServiceImpl,ManyToManyEntityRecordServiceImpl>();
-		services.AddScoped<IDataSource,IDataSource>();
+		services.AddScoped<IDataSource,DataSource>();
 		services.AddScoped<IGenericEngineExecutionService,GenericEngineExecutionService>();
 		services.AddScoped<IIdmDocumentFactory,IdmDocumentFactory>();
 		services.AddScoped<CreateStep,CreateStep>();
@@ -192,7 +193,11 @@ namespace App
 		services.AddScoped<IETagCache,ETagCache>();
 		services.AddScoped<IEntityActionEventListenerFactory,EntityActionEventListenerFactory>();
 		services.AddScoped<IKeystoneUserService,KeystoneUserService>();
+
+        // TODO wrapped cache
 		services.AddScoped<IRulesetRepository,CachedRulesetRepository>();
+	    services.AddScoped<IRulesetDao, RulesetDao>();
+
 		services.AddScoped<IHttpContextAccessor,HardCodedHttpContextAccessor>();
 		services.AddScoped<IEntityRecordResourceRepository,EntityRecordResourceRepository>();
 		services.AddScoped<IEntityActionRepository,EntityActionRepository>();
@@ -240,7 +245,11 @@ namespace App
 		services.AddScoped<IFunctionRulesetDao,FunctionRulesetDao>();
 		services.AddScoped<IContentEntityLinkFactory,ContentEntityLinkFactory>();
 		services.AddScoped<EntityRecordsController,EntityRecordsController>();
-		services.AddScoped<IEntityRecordDao,CachedEntityRecordDao>();
+
+		services.AddScoped<IEntityRecordDao,EntityRecordDao>();
+	    services.AddScoped<EntityDatabaseDefinitionFactory, EntityDatabaseDefinitionFactory>();
+	    services.AddScoped<IEntityRecordDtoFactory, EntityRecordDtoFactory>();
+
 		services.AddScoped<IConfigurationManagerAppSettingsRepository,ConfigurationManagerAppSettingsRepository>();
 		services.AddScoped<ISystemHookpointFactory,SystemHookpointFactory>();
 		services.AddScoped<IBackgroundTaskQueueParamsDtoFactory,BackgroundTaskQueueParamsDtoFactory>();
