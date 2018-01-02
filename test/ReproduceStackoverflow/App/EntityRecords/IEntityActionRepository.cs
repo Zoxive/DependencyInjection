@@ -1,6 +1,6 @@
 using ReproduceStackoverflow.App.MultiTenant;
 
-namespace ReproduceStackoverflow.App
+namespace ReproduceStackoverflow.App.EntityRecords
 {
     public interface IEntityActionRepository
     {

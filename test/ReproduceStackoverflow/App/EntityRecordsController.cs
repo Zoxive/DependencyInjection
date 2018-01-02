@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ReproduceStackoverflow.App.EntityRecords;
 
 namespace ReproduceStackoverflow.App
 {

@@ -26,15 +26,15 @@ namespace ReproduceStackoverflow.App.EntityRecords
 
         private static void AddActions(IServiceCollection services)
         {
-            unity.AddScoped<IEntityAction, Copy>();
-            unity.AddScoped<IEntityAction, Create>();
-            unity.AddScoped<IEntityAction, Delete>();
-            unity.AddScoped<IEntityAction, Read>();
-            unity.AddScoped<IEntityAction, ReadAll>();
-            unity.AddScoped<IEntityAction, ReadAncestors>();
-            unity.AddScoped<IEntityAction, Update>();
-            unity.AddScoped<UpdateResource>();
-            unity.AddScoped<IEntityAction, RulesetEntityAction>();
+            services.AddScoped<IEntityAction, Copy>();
+            services.AddScoped<IEntityAction, Create>();
+            services.AddScoped<IEntityAction, Delete>();
+            services.AddScoped<IEntityAction, Read>();
+            services.AddScoped<IEntityAction, ReadAll>();
+            services.AddScoped<IEntityAction, ReadAncestors>();
+            services.AddScoped<IEntityAction, Update>();
+            services.AddScoped<UpdateResource>();
+            services.AddScoped<IEntityAction, RulesetEntityAction>();
         }
     }
 }
