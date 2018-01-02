@@ -1,18 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-
-namespace ReproduceStackoverflow.App
+﻿namespace App
 {
-    public interface IKeystoneEntityNameResolver
-    {
-    }
 
-    public class KeystoneEntityNameResolver : IKeystoneEntityNameResolver
-    {
-        private readonly IHttpContextAccessor _httpContextAccessor;
+public interface IKeystoneEntityNameResolver {}
 
-        public KeystoneEntityNameResolver(IHttpContextAccessor httpContextAccessor)
-        {
-            _httpContextAccessor = httpContextAccessor;
-        }
-    }
+public class HardCodedEntity : IKeystoneEntityNameResolver
+{
+	public HardCodedEntity
+	(
+	)
+	{
+	}
+}
+
 }

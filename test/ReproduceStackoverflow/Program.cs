@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using App;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using ReproduceStackoverflow.App;
-using ReproduceStackoverflow.App.EntityRecords;
 using ReproduceStackoverflow.App.MultiTenant;
+using IHttpContextAccessor = Microsoft.AspNetCore.Http.IHttpContextAccessor;
 
 namespace ReproduceStackoverflow
 {
@@ -13,8 +13,7 @@ namespace ReproduceStackoverflow
         static void Main(string[] args)
         {
             var serviceProvider = new ServiceCollection()
-                .AddApi()
-                .AddEntity()
+                .Register()
                 .AddMultiTenancy()
                 .AddScoped<IHttpContextAccessor, NullHttpContextAccessor>()
                 .BuildServiceProvider(new ServiceProviderOptions
@@ -22,6 +21,7 @@ namespace ReproduceStackoverflow
                     ValidateScopes = true,
                     Mode = ServiceProviderMode.Dynamic
                 });
+                
 
             var current = Process.GetCurrentProcess();
 
