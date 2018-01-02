@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using ReproduceStackoverflow.App;
+using ReproduceStackoverflow.App.EntityRecords;
 using ReproduceStackoverflow.App.MultiTenant;
 
 namespace ReproduceStackoverflow
@@ -11,7 +13,10 @@ namespace ReproduceStackoverflow
         static void Main(string[] args)
         {
             var serviceProvider = new ServiceCollection()
+                .AddApi()
+                .AddEntity()
                 .AddMultiTenancy()
+                .AddScoped<IHttpContextAccessor, NullHttpContextAccessor>()
                 .BuildServiceProvider(new ServiceProviderOptions
                 {
                     ValidateScopes = true,
@@ -45,6 +50,11 @@ namespace ReproduceStackoverflow
 
             current.Dispose();
         }
+    }
+
+    internal class NullHttpContextAccessor : IHttpContextAccessor
+    {
+        public HttpContext HttpContext { get; set; }
     }
 
     public static class ProcessExtensiosn
