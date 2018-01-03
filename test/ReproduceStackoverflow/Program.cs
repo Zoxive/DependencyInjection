@@ -40,7 +40,7 @@ namespace ReproduceStackoverflow
                     // StackOverflow
                     var overflow = scope.ServiceProvider.GetRequiredService<IEntityRecordActionExecutionServiceFactory>();
 
-                    // Going straight to what I think the problem child is
+                    // I Think ICurrentEntityActions is the problem child. If we go straght to that instead of IEntityRecordActionExecutionServiceFactory we get a different error
                     // System.InvalidProgramException: 'Common Language Runtime detected an invalid program.'
                     //var more = scope.ServiceProvider.GetRequiredService<ICurrentEntityActions>();
 
