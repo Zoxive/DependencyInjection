@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using App;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using ReproduceStackoverflow.App.MultiTenant;
-using IHttpContextAccessor = Microsoft.AspNetCore.Http.IHttpContextAccessor;
 
 namespace ReproduceStackoverflow
 {
@@ -15,13 +13,12 @@ namespace ReproduceStackoverflow
             var serviceProvider = new ServiceCollection()
                 .Register()
                 .AddMultiTenancy()
-                .AddScoped<IHttpContextAccessor, NullHttpContextAccessor>()
                 .AddScoped(typeof(Lazy<>), typeof(LazyImpl<>))
                 .BuildServiceProvider(new ServiceProviderOptions
                 {
                     ValidateScopes = true,
-                    Mode = ServiceProviderMode.Dynamic
-                    //Mode = ServiceProviderMode.Compiled
+                    //Mode = ServiceProviderMode.Dynamic
+                    Mode = ServiceProviderMode.Compiled
                 });
                 
 
@@ -64,11 +61,6 @@ namespace ReproduceStackoverflow
         {
             return ioc.GetService<T>;
         }
-    }
-
-    internal class NullHttpContextAccessor : IHttpContextAccessor
-    {
-        public HttpContext HttpContext { get; set; }
     }
 
     public static class ProcessExtensiosn
