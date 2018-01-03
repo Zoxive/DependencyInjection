@@ -85,7 +85,6 @@ namespace App
 		services.AddScoped<ICompositeEntityRecordServiceImpl,CompositeEntityRecordServiceImpl>();
 		services.AddScoped<IContentRepository,ContentRepository>();
 		services.AddScoped<IKeystoneApplicationTableCacherFactory,KeystoneApplicationTableCacherFactory>();
-		services.AddScoped<EntityActionsFactory,EntityActionsFactory>();
 		services.AddScoped<IEntityRecordNotificationHandler,EntityRecordNotificationHandler>();
 		services.AddScoped<IPerKeystoneApplicationCacheManager,PerKeystoneApplicationCacheManager>();
 		services.AddScoped<IHookpointExecuteEventFactory,HookpointExecuteEventFactory>();
@@ -169,7 +168,11 @@ namespace App
 		services.AddScoped<ICurrentUser,HardCodedCurrentUser>();
 
 		services.AddScoped<IHookpointErrorInMemoryRepository,HookpointErrorInMemoryRepository>();
-		services.AddScoped<ICurrentEntityActions,CurrentEntityActions>();
+
+		services.AddScoped<EntityActionsFactory>();
+        services.AddScoped<ICurrentEntityActions>(ioc => ioc.GetRequiredService<EntityActionsFactory>().GetEntityActions());
+		//services.AddScoped<ICurrentEntityActions,CurrentEntityActions>();
+
 		services.AddScoped<IValidationXmlSerializer,ValidationXmlSerializer>();
 		services.AddScoped<IManyToManyEntityRecordServiceImpl,ManyToManyEntityRecordServiceImpl>();
 		services.AddScoped<IDataSource,DataSource>();
