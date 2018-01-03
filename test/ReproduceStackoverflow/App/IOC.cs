@@ -157,7 +157,7 @@ namespace App
 		services.AddScoped<IEntityRecordCache,EntityRecordCache>();
 		services.AddScoped<IKeystoneSectionVersionRepository,KeystoneSectionVersionRepository>();
 		services.AddScoped<ISystemHookpointScheduledRulesetDelegator,SystemHookpointScheduledRulesetDelegator>();
-		services.AddScoped<UpdateResource,UpdateResource>();
+		services.AddScoped<UpdateResource>();
 		services.AddScoped<IResilientRecordDao,ResilientRecordDao>();
 		services.AddScoped<IEntityDefinitionRepository,EntityDefinitionRepository>();
 		services.AddScoped<ISaveAllStep,SaveAllStep>();

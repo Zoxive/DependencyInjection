@@ -21,6 +21,7 @@ namespace ReproduceStackoverflow
                 {
                     ValidateScopes = true,
                     Mode = ServiceProviderMode.Dynamic
+                    //Mode = ServiceProviderMode.Compiled
                 });
                 
 
@@ -59,9 +60,9 @@ namespace ReproduceStackoverflow
         {
         }
 
-        private static T Resolve(IServiceProvider ioc)
+        private static Func<T> Resolve(IServiceProvider ioc)
         {
-            return ioc.GetService<T>();
+            return ioc.GetService<T>;
         }
     }
 
