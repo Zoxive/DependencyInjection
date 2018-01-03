@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 namespace App
 {
 
@@ -170,8 +171,8 @@ namespace App
 		services.AddScoped<IHookpointErrorInMemoryRepository,HookpointErrorInMemoryRepository>();
 
 		services.AddScoped<EntityActionsFactory>();
+        //services.AddScoped<ICurrentEntityActions>(GetCurrentEntityActions);
         services.AddScoped<ICurrentEntityActions>(ioc => ioc.GetRequiredService<EntityActionsFactory>().GetEntityActions());
-		//services.AddScoped<ICurrentEntityActions,CurrentEntityActions>();
 
 		services.AddScoped<IValidationXmlSerializer,ValidationXmlSerializer>();
 		services.AddScoped<IManyToManyEntityRecordServiceImpl,ManyToManyEntityRecordServiceImpl>();
@@ -263,6 +264,11 @@ namespace App
 		services.AddScoped<IManyToManySelectBuilder,ManyToManySelectBuilder>();
 	return services;
 	}
+
+	    private static ICurrentEntityActions GetCurrentEntityActions(IServiceProvider ioc)
+	    {
+	        return ioc.GetRequiredService<EntityActionsFactory>().GetEntityActions();
+	    }
 	}
 
 }

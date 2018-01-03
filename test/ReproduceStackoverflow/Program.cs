@@ -18,6 +18,8 @@ namespace ReproduceStackoverflow
                 {
                     ValidateScopes = true,
                     //Mode = ServiceProviderMode.Dynamic
+
+                    // Force compiled to get stackoverflow right away
                     Mode = ServiceProviderMode.Compiled
                 });
                 
@@ -35,7 +37,12 @@ namespace ReproduceStackoverflow
                     var tenant = scope.ServiceProvider.GetRequiredService<ITenant>();
                     Console.WriteLine($@"Tenant: {tenant.Id}");
 
-                    var controller = scope.ServiceProvider.GetRequiredService<EntityRecordsController>();
+                    // StackOverflow
+                    var overflow = scope.ServiceProvider.GetRequiredService<IEntityRecordActionExecutionServiceFactory>();
+
+                    // Going straight to what I think the problem child is
+                    // System.InvalidProgramException: 'Common Language Runtime detected an invalid program.'
+                    //var more = scope.ServiceProvider.GetRequiredService<ICurrentEntityActions>();
 
                     Console.WriteLine($"AfterFactory {current.MegaBytes()}");
                 }
