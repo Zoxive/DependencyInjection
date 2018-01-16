@@ -8,6 +8,8 @@ Microsoft.Extensions.DependencyInjection.IServiceCollection</Description>
     <AssemblyName>Microsoft.Extensions.DependencyInjection.Abstractions</AssemblyName>
     <RootNamespace>Microsoft.Extensions.DependencyInjection.Abstractions</RootNamespace>
     <DefineConstants>$(DefineConstants);ActivatorUtilities_In_DependencyInjection</DefineConstants>
+    <PackageId>DependencyInjection.Abstractions</PackageId>
+    <Version>2.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -18,6 +18,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public bool ValidateScopes { get; set; }
 
-        internal ServiceProviderMode Mode { get; set; } = ServiceProviderMode.Dynamic;
+        //internal ServiceProviderMode Mode { get; set; } = ServiceProviderMode.Dynamic;
+        // HARD CODE TO RUNTIME UNTIL https://github.com/aspnet/Home/issues/2737 is fixed
+        internal ServiceProviderMode Mode { get; set; } = ServiceProviderMode.Runtime;
     }
 }
