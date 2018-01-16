@@ -147,13 +147,21 @@ namespace App
 		services.AddScoped<IKeystoneAdminDatabase,Database>();
 		services.AddScoped<IUsageMetricsRuleEventAggregator,UsageMetricsRuleEventAggregator>();
 		services.AddScoped<IEntityAction,Copy>();
+		services.AddScoped<Copy>();
 		services.AddScoped<IEntityAction,Create>();
+		services.AddScoped<Create>();
 		services.AddScoped<IEntityAction,Delete>();
+		services.AddScoped<Delete>();
 		services.AddScoped<IEntityAction,Read>();
+		services.AddScoped<Read>();
 		services.AddScoped<IEntityAction,ReadAll>();
+		services.AddScoped<ReadAll>();
 		services.AddScoped<IEntityAction,ReadAncestors>();
+		services.AddScoped<ReadAncestors>();
 		services.AddScoped<IEntityAction,Update>();
+		services.AddScoped<Update>();
 		services.AddScoped<IEntityAction,RulesetEntityAction>();
+		services.AddScoped<RulesetEntityAction>();
 		services.AddScoped<IEntityRecordCache,EntityRecordCache>();
 		services.AddScoped<IKeystoneSectionVersionRepository,KeystoneSectionVersionRepository>();
 		services.AddScoped<ISystemHookpointScheduledRulesetDelegator,SystemHookpointScheduledRulesetDelegator>();
@@ -170,9 +178,7 @@ namespace App
 
 		services.AddScoped<IHookpointErrorInMemoryRepository,HookpointErrorInMemoryRepository>();
 
-		services.AddScoped<EntityActionsFactory>();
-        //services.AddScoped<ICurrentEntityActions>(GetCurrentEntityActions);
-        services.AddScoped<ICurrentEntityActions>(ioc => ioc.GetRequiredService<EntityActionsFactory>().GetEntityActions());
+		services.AddScoped<IEntityActionsFactory, EntityActionsFactory>();
 
 		services.AddScoped<IValidationXmlSerializer,ValidationXmlSerializer>();
 		services.AddScoped<IManyToManyEntityRecordServiceImpl,ManyToManyEntityRecordServiceImpl>();
@@ -210,7 +216,6 @@ namespace App
 		services.AddScoped<IAggregateRootModifiedEventListener,AggregateRootModifiedEventListener>();
 		services.AddScoped<IEntityRecordQueryBuilder,EntityRecordQueryBuilder>();
 		services.AddScoped<IEntityRecordFactory,EntityRecordFactory>();
-		services.AddScoped<ICurrentEntityDefinitionAccessor,CurrentEntityDefinitionAccessor>();
 		services.AddScoped<IUserService,UserService>();
 		services.AddScoped<ITraceSettingsDao,TraceSettingsDao>();
 		services.AddScoped<ValidateStep,ValidateStep>();
@@ -264,11 +269,6 @@ namespace App
 		services.AddScoped<IManyToManySelectBuilder,ManyToManySelectBuilder>();
 	return services;
 	}
-
-	    private static ICurrentEntityActions GetCurrentEntityActions(IServiceProvider ioc)
-	    {
-	        return ioc.GetRequiredService<EntityActionsFactory>().GetEntityActions();
-	    }
 	}
 
 }

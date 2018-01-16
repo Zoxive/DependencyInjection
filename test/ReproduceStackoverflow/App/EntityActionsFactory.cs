@@ -3,14 +3,17 @@ using System;
 
 namespace App
 {
+    public interface IEntityActionsFactory
+    {
+        IEnumerable<IEntityAction> GetEntityActions();
+    }
 
-    public class EntityActionsFactory
+    public class EntityActionsFactory : IEntityActionsFactory
     {
         private readonly IEnumerable<IEntityAction> _baseEntityActions;
 
         public EntityActionsFactory
         (
-            ICurrentEntityDefinitionAccessor currentEntityDefinitionAccessor,
             IEnumerable<IEntityAction> baseEntityActions,
             Lazy<ReadRoot> readRoot,
             Lazy<RootRulesetEntityAction> customRootAction
@@ -19,9 +22,9 @@ namespace App
             _baseEntityActions = baseEntityActions;
         }
 
-        public ICurrentEntityActions GetEntityActions()
+        public IEnumerable<IEntityAction> GetEntityActions()
         {
-            return new CurrentEntityActions(_baseEntityActions);
+            return _baseEntityActions;
         }
     }
 

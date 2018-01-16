@@ -12,10 +12,9 @@ public class EntityRecordActionExecutionServiceFactory : IEntityRecordActionExec
 		IEntityActionResultBuilder entityActionResultBuilder,
 		IEntityRecordRepository entityRecordRepository,
 		IKeystoneSectionVersionRepository keystoneSectionVersionRepository,
-		ICurrentEntityActions currentEntityActions
+        IEntityActionsFactory entityActionsFactory
 	)
 	{
 	}
 }
-
 }

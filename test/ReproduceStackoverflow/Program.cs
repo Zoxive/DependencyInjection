@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using App;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,11 +39,23 @@ namespace ReproduceStackoverflow
                     Console.WriteLine($@"Tenant: {tenant.Id}");
 
                     // StackOverflow
-                    var overflow = scope.ServiceProvider.GetRequiredService<IEntityRecordActionExecutionServiceFactory>();
+                    //var overflow = scope.ServiceProvider.GetRequiredService<IEntityRecordActionExecutionServiceFactory>();
 
                     // I Think ICurrentEntityActions is the problem child. If we go straght to that instead of IEntityRecordActionExecutionServiceFactory we get a different error
                     // System.InvalidProgramException: 'Common Language Runtime detected an invalid program.'
+
                     //var more = scope.ServiceProvider.GetRequiredService<ICurrentEntityActions>();
+                    //var t = scope.ServiceProvider.GetRequiredService<IEnumerable<IEntityAction>>();
+
+                    //var tt = scope.ServiceProvider.GetRequiredService<Copy>();
+                    //var tt = scope.ServiceProvider.GetRequiredService<IReadStep>();
+
+                    // new flow
+                    //var t = scope.ServiceProvider.GetRequiredService<ValidateStep>();
+                    var t = scope.ServiceProvider.GetRequiredService<IEntityRecordValidator>();
+
+                    // Works
+                    //var t = scope.ServiceProvider.GetRequiredService<IEntityFieldValidationService>();
 
                     Console.WriteLine($"AfterFactory {current.MegaBytes()}");
                 }
