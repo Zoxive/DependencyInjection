@@ -16,17 +16,17 @@ namespace Microsoft.Extensions.DependencyInjection.ServiceLookup
             HasScope = hasScope;
         }
 
-        public int Size;
+        public readonly int Size;
 
-        public bool HasScope;
+        public readonly bool HasScope;
 
         public ILEmitCallSiteAnalysisResult Add(in ILEmitCallSiteAnalysisResult other)
         {
-            return new ILEmitCallSiteAnalysisResult()
-            {
-                Size = Size + other.Size,
-                HasScope = HasScope | other.HasScope
-            };
+            return new ILEmitCallSiteAnalysisResult
+            (
+                Size + other.Size,
+                HasScope | other.HasScope
+            );
         }
     }
 }
