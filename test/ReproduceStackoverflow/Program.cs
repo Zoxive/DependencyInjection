@@ -20,8 +20,8 @@ namespace ReproduceStackoverflow
                     ValidateScopes = true,
                     //Mode = ServiceProviderMode.Dynamic
 
-                    // Force compiled to get stackoverflow right away
-                    Mode = ServiceProviderMode.Compiled
+                    // Force ILEmit or Expressions to get stackoverflow right away
+                    Mode = ServiceProviderMode.ILEmit
                 });
                 
 

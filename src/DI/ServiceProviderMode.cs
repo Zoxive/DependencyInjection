@@ -3,11 +3,14 @@
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-    internal enum ServiceProviderMode
+    /// <inheritdoc />
+    public enum ServiceProviderMode
     {
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         Dynamic,
         Runtime,
         Expressions,
         ILEmit
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     }
 }
