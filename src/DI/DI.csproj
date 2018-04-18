@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>Default implementation of dependency injection for Microsoft.Extensions.DependencyInjection.</Description>
+    <Description>Temporary custom implementation because of https://github.com/aspnet/Home/issues/2737</Description>
     <TargetFrameworks>netcoreapp2.0;net461;netstandard2.0</TargetFrameworks>
     <AssemblyName>Microsoft.Extensions.DependencyInjection</AssemblyName>
     <RootNamespace>Microsoft.Extensions.DependencyInjection</RootNamespace>
@@ -13,6 +13,9 @@
     <ILEmitBackendSaveAssemblies>False</ILEmitBackendSaveAssemblies>
     <DefineConstants Condition="'$(ILEmitBackendSaveAssemblies)' == 'True'">$(DefineConstants);SAVE_ASSEMBLIES</DefineConstants>
     <LangVersion>7.2</LangVersion>
+    <PackageId>DependencyInjection</PackageId>
+    <Company>Microsoft.Extensions.DependencyInjection</Company>
+    <Authors>Microsoft.Extensions.DependencyInjection</Authors>
   </PropertyGroup>
 
   <!--
